@@ -1,0 +1,33 @@
+$font-styles: "Normal", "Italic";
+$font-weights: (
+  "Thin": 100,
+  "Light": 300,
+  "Regular": 400,
+  "Medium": 500,
+  "Bold": 800,
+);
+
+@each $style in $font-styles {
+  @each $weight, $value in $font-weights {
+    @font-face {
+      font-family: Roboto;
+      @if $style == "Normal" {
+        src: url("../fonts/Roboto/Roboto-#{$weight}.ttf");
+        font-style: normal;
+      } @else {
+        @if ($weight == "Regular") {
+          src: url("../fonts/Roboto/Roboto-Italic.ttf");
+        } @else {
+          src: url("../fonts/Roboto/Roboto-#{$weight}Italic.ttf");
+        }
+        font-style: italic;
+      }
+      font-weight: $value;
+    }
+  }
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+}
