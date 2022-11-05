@@ -1,0 +1,12 @@
+{
+  "editor.tabSize": 2,
+  "liveSassCompile.settings.forceBaseDirectory": "",
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "compressed",
+      "extensionName": ".css",
+      "savePath": "./front/css",
+      "savePathReplacementPairs": null
+    }
+  ]
+}
