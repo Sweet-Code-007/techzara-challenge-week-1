@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Create User</title>
+		<title>Add new member</title>
 		<link rel="stylesheet" href="./static/css/user.css">
 	</head>
 
@@ -20,7 +20,7 @@
 		<div id="form-container">
 			<form action="" method="post">
 				<div id="sliders">
-					<div id="shown-1">
+					<div id="shown-1" class="col">
 						<div class="form-control">
 							<label for="f_name">First name:</label>
 							<input type="text" name="firstName" id="f_name" placeholder="ex: Bema">
@@ -34,11 +34,11 @@
 							<textarea name="description" id="descri" style="resize: none; width: 100%"></textarea>
 						</div>
 						<div class="btns">
-							<button class="next">next</button>
+							<input type="button" class="next" value="Next" onclick="paginationSystem.next()">
 						</div>
 					</div>
 
-					<div id="shown-2">
+					<div id="shown-2" class="col">
 						<div class="form-control">
 							<label for="pdp">Profil picture:</label>
 							<input type="file" name="pdp" id="pdp" placeholder="your profile picture" accept="image/*">
@@ -57,11 +57,11 @@
 							<input type="tel" name="tel" id="tel" placeholder="ex: +261 33 12 345 678 90">
 						</div>
 						<div class="btns">
-							<button class="prev">Previous</button><button class="next">next</button>
+							<input type="button" class="prev" value="Previous" onclick="paginationSystem.prev()"><input type="button" class="next" value="Next" onclick="paginationSystem.next()">
 						</div>
 					</div>
 
-					<div id="shown-3">
+					<div id="shown-3" class="col">
 						<div class="form-control">
 							<label for="linkedin">LinkedIn link:</label>
 							<input type="text" name="linkedin" id="linkedin"
@@ -77,11 +77,11 @@
 							<input type="text" name="github" id="github" placeholder="ex: www.github.com/BemaRandria">
 						</div>
 						<div class="btns">
-							<button class="prev">Previous</button><button class="next">next</button>
+							<input type="button" class="prev" value="Previous" onclick="paginationSystem.prev()"><input type="button" class="next" value="Next" onclick="paginationSystem.next()">
 						</div>
 					</div>
 
-					<div id="shown4">
+					<div id="shown4" class="col">
 						<div class="form-control">
 							<label for="title">Title:</label>
 							<input type="text" name="title" id="title" placeholder="ex: front-end developper">
@@ -89,22 +89,27 @@
 						<div class="form-control">
 							<label for="tech">Programming langage / Technology:</label>
 							<input type="search" name="tech" id="tech" placeholder="ex: Javascript">
-							<div class="tech" id="js">
-								<button>&times;</button>
-								<div class="langage">Javascript</div>
+							<div id="list">
+								<div class="tech" id="js">
+									<div id="close">&times</div>
+									<div class="langage">Javascript</div>
+								</div>
+								<div class="tech" id="php">
+									<div id="close">&times</div>
+									<div class="langage">PHP</div>
+								</div>
 							</div>
-							<div class="tech" id="php">
-								<button>&times;</button>
-								<div class="langage">PHP</div>
-							</div>
-							<div class="btns">
-								<button class="prev">Previous</button><button class="next" type="Submit">Create</button>
-							</div>
+						</div>
+						<div class="btns">
+							<input type="button" class="prev" value="Previous" onclick="paginationSystem.prev()"><input type="submit" class="next submit" type="Submit" value="Create">
 						</div>
 					</div>
 				</div>
 			</form>
 		</div>
+
+		<script src="static/js/user.js"></script>
+
 	</body>
 
 </html>
