@@ -16,6 +16,10 @@ databaseSetup({
   seed: true,
 });
 
+// Setting ejs as the view engine
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
 // Static files server
 app.use("/static", express.static(path.join(__dirname, "static")));
 
