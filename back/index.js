@@ -7,7 +7,14 @@ const app = express();
 // Current config
 const config = configs.development;
 
+// Database setup
+const { databaseSetup } = require("./database/setup");
+databaseSetup({
+  fresh: true,
+  seed: true,
+});
+
 // Listening port
 app.listen(config.port, () => {
-  console.log(`Server is running in port ${config.port}`);
+  console.log(`Server is running in port ${config.port} ...`);
 });
