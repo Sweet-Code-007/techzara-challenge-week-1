@@ -2,6 +2,15 @@ const pool = require("../database/pool");
 
 const uploadsConfig = require("../config/uploads-config");
 
+module.exports.getUsers = async function getUsers() {
+  const results = await pool.query(`
+    SELECT id, firstname, lastname, title, created_at,
+    CONCAT('${uploadsConfig.USERS_PATH}', photo) AS photo_url
+    FROM users
+  `);
+  return results.rows;
+};
+
 module.exports.getUser = async function (id) {
   const results = await pool.query(`
   SELECT
