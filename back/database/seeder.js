@@ -278,20 +278,7 @@ const projects = [
   },
 ];
 
-// Creates an insert into query
-function createInsertIntoQuery(table, columns, rows) {
-  let query = `INSERT INTO ${table} (${columns.join(", ")}) VALUES`;
-  rows.forEach((row, i) => {
-    if (i > 0) query += ", ";
-    query += " (";
-    columns.forEach((col, i) => {
-      if (i > 0) query += ", ";
-      query += typeof row[col] === "string" ? `'${row[col]}'` : row[col];
-    });
-    query += ")";
-  });
-  return query;
-}
+const { createInsertIntoQuery } = require("../helpers/query");
 
 // Seeds the database
 async function seedDB() {
@@ -300,7 +287,7 @@ async function seedDB() {
   console.log("Users table seeded ...");
   await pool.query(createInsertIntoQuery("skills", ["name", "photo"], skills));
   console.log("Skills table seeded ...");
-  await pool.query(createInsertIntoQuery("users_skills", ["user_id", "skill_id"], users_skills));
+  await pool.query(createInsertIntoQuery("users_skills", ["user_id", "skill_id"], users_skills, false));
   console.log("Users-Skills table seeded ...");
   await pool.query(createInsertIntoQuery("projects", ["name", "photo", "description"], projects));
   console.log("Projects table seeded ...");
