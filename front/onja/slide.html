@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="slide.css">
+    <title>Document</title>
+</head>
+<body>
+      <img src="imazy/PXL_20220610_070234405.PORTRAIT.jpg" style="width: 1400px;" alt="" class="myslide">
+      <img src="imazy/PXL_20220610_070234405.PORTRAIT.jpg" style="width: 1400px;" alt="" class="myslide">
+      <img src="imazy/logo.png" style="width: 1400px;" alt="" class="myslide">
+      <script>
+        let slideIndex= 0.
+        carousel();
+        function carousel() {
+            
+    
+        let profil;
+        let slide = document.getElementsByClassName("myslide");
+        for (profil= 0; profil < slide.length; profil++) {
+            slide[profil].style.display = "none" ;
+        }
+        slideIndex++;
+        if (slideIndex > slide.length) {slideIndex = 1}
+        slide[slideIndex-1].style.display = "block";
+        setTimeout(carousel, 3000);
+    }
+    </script>
+</body>
+</html>

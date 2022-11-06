@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/card.css">
+    <title>Document</title>
+</head>
+<body> 
+            <div class="card">
+                <div class="content">      
+                    <div class="tety">
+                        <h2 style="color: white;">RAKOTOARINO Onjananiana Rolland</h2>
+                        <img src="../imazy/PXL_20220610_070234405.PORTRAIT.jpg" alt="" width="70px" class="sary">
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt eum fugit inventore dignissimos corrupti beatae odio fuga mollitia unde! Illum reiciendis aliquam ullam veritatis mollitia consequatur sed sit rem inventore!</p>
+                    <p class="p"><a href="">Profil</a></p>
+                </div>    
+            </div>
+
+            <div class="card" style="background-color: red;">
+                <div class="content">      
+                    <div class="tety">
+                        <h2 style="color: white;">RAKOTOARINO Onjananiana Rolland</h2>
+                        <img src="../imazy/PXL_20220610_070234405.PORTRAIT.jpg" alt="" width="70px" class="sary">
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt eum fugit inventore dignissimos corrupti beatae odio fuga mollitia unde! Illum reiciendis aliquam ullam veritatis mollitia consequatur sed sit rem inventore!</p>
+                    <p class="p"><a href="">Profil</a></p>
+                </div>    
+            </div>
+
+            
+            <div class="card" style="background-color: yellow;">
+                <div class="content">      
+                    <div class="tety">
+                        <h2 style="color: white;">RAKOTOARINO Onjananiana Rolland</h2>
+                        <img src="../imazy/PXL_20220610_070234405.PORTRAIT.jpg" alt="" width="70px" class="sary">
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt eum fugit inventore dignissimos corrupti beatae odio fuga mollitia unde! Illum reiciendis aliquam ullam veritatis mollitia consequatur sed sit rem inventore!</p>
+                    <p class="p"><a href="">Profil</a></p>
+                </div>    
+            </div>
+            
+            <div class="card" style="background-color: yellow;">
+                <div class="content">      
+                    <div class="tety">
+                        <h2 style="color: white;">RAKOTOARINO Onjananiana Rolland</h2>
+                        <img src="../imazy/PXL_20220610_070234405.PORTRAIT.jpg" alt="" width="70px" class="sary">
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt eum fugit inventore dignissimos corrupti beatae odio fuga mollitia unde! Illum reiciendis aliquam ullam veritatis mollitia consequatur sed sit rem inventore!</p>
+                    <p class="p"><a href="">Profil</a></p>
+                </div>    
+            </div>
+
+                        <div class="card" style="background-color: yellow;">
+                <div class="content">      
+                    <div class="tety">
+                        <h2 style="color: white;">RAKOTOARINO Onjananiana Rolland</h2>
+                        <img src="../imazy/PXL_20220610_070234405.PORTRAIT.jpg" alt="" width="70px" class="sary">
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt eum fugit inventore dignissimos corrupti beatae odio fuga mollitia unde! Illum reiciendis aliquam ullam veritatis mollitia consequatur sed sit rem inventore!</p>
+                    <p class="p"><a href="">Profil</a></p>
+                </div>    
+            </div>
+
+<script>
+    let slideIndex= 0.
+    carousel();
+    function carousel() {
+    let profil;
+    let slide = document.getElementsByClassName("card");
+    for (profil= 0; profil < slide.length; profil++) {
+        slide[profil].style.display = "none" ;
+    }
+    slideIndex++;
+    if (slideIndex > slide.length) {slideIndex = 1}
+    slide[slideIndex-1].style.display = "block";
+    setTimeout(carousel, 1000);
+}
+
+</script>
+</body>
+</html>

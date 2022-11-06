@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="../css/login.css">
+    
+    <title>connecting</title>
+</head>
+<body>
+    <!-- <header>
+       <div class="header">
+           <h2 class="ffz" style="color: palevioletred;">SweetCode</h2>
+           <ul class="navbar">
+               <li><a href="">Acceuil</a></li>
+               <li><a href="">FAQ</a></li>
+               <li><a href="">Apropos</a></li>
+               <li><a href="">Contact</a></li>
+               li
+           </ul>
+
+       </div> 
+    </header> -->
+    <section>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="box">
+            <div class="square" style="--i:0;"></div>
+            <div class="square" style="--i:1;"></div>
+            <div class="square" style="--i:2;"></div>
+            <div class="square" style="--i:3;"></div>
+            <!-- <div class="square" style="--i:4;"></div> -->
+            <div class="square" style="--i:4;"></div>
+            <div class="square" style="--i:5;"></div>
+            <div class="square" style="--i:6;"></div>
+            <div class="container">
+                <div class="form">
+                    <h2>Connectez vous</h2>
+                    <span class="notif" style="color:red"><?php if($errone!=null){?> <h3><?php echo $errone;?></h3> <?php } ?></span>
+                    <form action="page_connexion.php" method="post">
+                        <div class="inputBox">
+                            <input type="text" name="pseudo" placeholder="Nom d'utilsateur">
+                        </div>
+                        <div class="inputBox">
+                            <input type="password"  name="code" placeholder="mot de passe">
+                        </div>
+                        <div class="inputBox">
+                            <input type="submit" value="connecter">
+                        </div>
+                        <p class="forget">Mot de passe oublié? <a href="">cliquez ici</a></p>
+                        <p class="forget">vous n'avez pas de compte?<a href="inscription.php">s'inscrire</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
