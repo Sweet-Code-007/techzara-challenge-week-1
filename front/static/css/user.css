@@ -1,13 +1,1 @@
-:root {
-  --color-1: #2840f8;
-  --color-2: #8870b0;
-  --color-4: #000020;
-  --color-3: #383860;
-  --color-5: #000423;
-}
-
-body {
-  background-color: var(--color-1);
-}
-
-/*# sourceMappingURL=user.css.map */
+:root{--color-1: #2840f8;--color-2: #8870b0;--color-4: #000020;--color-3: #383860;--color-5: #000423}body{background-color:var(--color-1)}/*# sourceMappingURL=user.css.map */
