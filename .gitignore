@@ -1,2 +1,4 @@
 /node_modules
-./vscode
+/back/static/projects
+/back/static/skills
+/back/static/users
