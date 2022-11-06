@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 
 const configs = require("./config/app-config");
+const uploadsConfig = require("./config/uploads-config");
 
 // Application
 const app = express();
@@ -15,6 +16,12 @@ databaseSetup({
   fresh: true,
   seed: true,
 });
+
+// Services
+const { updateUserPhoto } = require("./services/usersService");
+
+// Middlewares
+const imageUploader = require("./middlewares/uploadRoute");
 
 // Setting ejs as the view engine
 app.set("views", path.join(__dirname, "views"));

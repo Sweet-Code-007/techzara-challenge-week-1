@@ -13,3 +13,17 @@ module.exports.createInsertIntoQuery = function (table, columns, rows, returnsId
   if (returnsId) query += `RETURNING id`;
   return query;
 };
+
+// Creates an update query
+module.exports.createUpdateQuery = function (table, data, where) {
+  let query = `UPDATE ${table} SET `;
+  let i = 0;
+  for (column in data) {
+    if (i > 0) query += ", ";
+    query += `${column} = ${typeof data[column] === "string" ? `'${data[column]}'` : data[column]}`;
+    i++;
+  }
+  if (where) query += ` WHERE ${where}`;
+  console.log(query);
+  return query;
+};
