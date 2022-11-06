@@ -123,7 +123,7 @@ const users_skills = [
   },
   {
     user_id: 1,
-    skill_id: 4,
+    skill_id: 6,
   },
   {
     user_id: 2,
