@@ -2,6 +2,8 @@ const pool = require("../database/pool");
 
 const uploadsConfig = require("../config/uploads-config");
 
+const { createInsertIntoQuery } = require("../helpers/query");
+
 module.exports.getUsers = async function getUsers() {
   const results = await pool.query(`
     SELECT id, firstname, lastname, title, created_at,
@@ -38,4 +40,36 @@ module.exports.getUser = async function (id) {
     });
   }
   return user;
+};
+
+// Creates a user
+module.exports.createUser = async function (data) {
+  const result = await pool.query(
+    createInsertIntoQuery("users", ["firstname", "lastname", "title", "description"], [data])
+  );
+  const user = (
+    await pool.query(`
+  SELECT * FROM users WHERE id = ${result.rows[0].id}
+  `)
+  ).rows[0];
+  await pool.query(
+    createInsertIntoQuery(
+      "users_skills",
+      ["user_id", "skill_id"],
+      data.skillIds.map((skill_id) => ({
+        user_id: user.id,
+        skill_id,
+      })),
+      false
+    )
+  );
+  const skills = (
+    await pool.query(`
+  SELECT * FROM skills WHERE id IN (${data.skillIds.join(", ")})
+  `)
+  ).rows;
+  return {
+    ...user,
+    skills,
+  };
 };
