@@ -1,4 +1,6 @@
 const express = require("express");
+const path = require("path");
+
 const configs = require("./config/app-config");
 
 // Application
@@ -13,6 +15,9 @@ databaseSetup({
   fresh: true,
   seed: true,
 });
+
+// Static files server
+app.use("/static", express.static(path.join(__dirname, "static")));
 
 // Listening port
 app.listen(config.port, () => {

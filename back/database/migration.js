@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS users (
   id INTEGER DEFAULT NEXTVAL('users_id_seq') PRIMARY KEY,
   firstname VARCHAR(50) NOT NULL,
   lastname VARCHAR(80) NOT NULL,
-  title VARCHAR(30) NOT NULL,
+  title VARCHAR(50) NOT NULL,
   description TEXT NOT NULL,
   photo VARCHAR(255),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS skills (
 // Users-Skills table creation query
 const USERS_SKILLS_TABLE_QUERY = `
 CREATE TABLE IF NOT EXISTS users_skills (
-  user_id INTEGER UNIQUE NOT NULL REFERENCES users (id),
-  skill_id INTEGER UNIQUE NOT NULL REFERENCES skills (id),
+  user_id INTEGER NOT NULL REFERENCES users (id),
+  skill_id INTEGER NOT NULL REFERENCES skills (id),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
 )
 `;
