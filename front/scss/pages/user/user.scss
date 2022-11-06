@@ -1,5 +1,225 @@
 @import '../../_colors.scss';
+@import '../../components/_gradient.scss';
+@import '../../resets';
+@import '../../typography';
+
+:root {
+	--width: 270px;
+	--height: 150px;
+
+	--form-width: 90%;
+	--margin-col: 20px;
+	--padding-right-col: 3px;
+
+	--lateral-transition-duration: 200ms;
+	--vertical-transition-duration: 300ms;
+}
+
+$card-container-padding-Y: 20px;
+$form-container-padding-Y: 40px;
+$form-container-padding-X: 15px;
 
 body{
-  background-color: var(--color-1);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	@media screen and (min-width: 768px) {
+		flex-direction: row;
+
+		#gradient-bg, #form-container{
+			height: 100vh;
+			box-sizing: border-box;
+		}
+		#gradient-bg{
+			width: 37vw;
+			max-width: 325px;
+		}
+		#form-container{
+			width: 100%;
+
+			form{
+				align-self: center;
+			}
+		}
+	}
+	@media screen and (min-width: 992px) {
+		#gradient-bg{
+			width: 40vw;
+			max-width: 425px;
+		}
+		form{
+			max-width: 365px;
+		}
+	}
+}
+
+#gradient-bg {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	padding: $card-container-padding-Y 0;
+	margin: 0;
+	@include gradient('to bottom, #{$dark-blue}, #{$grayish-blue}');
+
+	& #cards-container {
+		align-self: center;
+		width: var(--width);
+		height: var(--height);
+	}
+}
+
+#form-container {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	height: calc(100vh - 2 * (#{$card-container-padding-Y} + #{$form-container-padding-Y}) - var(--height));
+	padding: $form-container-padding-Y $form-container-padding-X;
+
+	& form {
+		width: var(--form-width);
+		max-width: 365px;
+		height: fit-content;
+		padding: 0 3px 20px 0;
+		overflow: hidden;
+		// align-self: center;
+
+		& #sliders {
+			width: 400%;
+			display: flex;
+			box-sizing: border-box;
+			transition: transform 0.5s ease-in;
+
+			& .col {
+				padding: 35px 15px 25px 15px;
+				width: 25%;
+				flex: 1;
+				border: 4px double var(--color-3);
+				box-shadow: 7px 7px 10px 3px transparentize($dark-blue, 0.5);
+				border-radius: 12px;
+			}
+
+			& .col:not(:last-child) {
+				margin-right: var(--margin-col);
+			}
+		}
+	}
+
+	#sliders .col {
+		display: flex;
+		flex-direction: column;
+
+		& .form-control {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 20px;
+
+			color: var(--color-5);
+			font-family: 'Roboto';
+			box-sizing: border-box;
+
+			& label {
+				margin: 0px 0 5px 3px;
+
+				font-size: 20px;
+				font-weight: bold;
+				letter-spacing: 1.3px;
+				word-spacing: 3px;
+			}
+
+			& input,
+			& textarea {
+				width: 100%;
+				padding: 5px 6px 5px 15px;
+				border-radius: 5px;
+				border: 1px solid (var(--color-5));
+				box-sizing: border-box;
+				// color: var(--color-5);
+			}
+
+			& #list {
+				margin-top: 15px;
+				display: flex;
+				justify-content: space-evenly;
+
+				& #close {
+					display: flex;
+					justify-content: center;
+					align-content: center;
+					border-radius: 50%;
+					font-size: 12px;
+					padding: 2.5px 5px;
+					background-color: rgb(233, 233, 233);
+					color: $dark-blue;
+					transition: transform 0.25s ease-out;
+
+					position: absolute;
+					top: -8px;
+					right: -5.5px;
+					
+					&:hover{
+						cursor: pointer;
+						transform: scale(1.4);
+					}
+				}
+
+				& .tech {
+					border: 2px solid $dark-blue;
+					background-color: $dark-blue;
+					color: white;
+					width: min-content;
+					font-size: 12px;
+					padding: 5px 15px;
+					position: relative;
+					border-radius: 20px;
+					text-align: center;
+				}
+			}
+		}
+
+		& .btns {
+			margin-top: auto;
+
+			& .next {
+				float: right;
+			}
+
+			& .prev {
+				float: left;
+			}
+
+			&>* {
+				background-color: var(--color-5);
+				color: var(--white);
+				width: 100px;
+				height: 36px;
+				border: 2px solid var(--color-5);
+				border-radius: 10px;
+				box-shadow: 5px 5px 8px transparentize($dark-blue, 0.5);
+
+				&:hover,
+				&:active {
+					cursor: pointer;
+					font-weight: bold;
+					border-color: transparent;
+					background-color: lighten($dark-blue, $amount: 70);
+					box-shadow: 15px 15px 8px transparentize($dark-blue, 0.5);
+					transform: scale(1.8);
+					transform: translateY(-5px);
+					transition: transform 0.15s ease-out, box-shadow 0.15s;
+				}
+
+				&:active {
+					transform: scale(0.8);
+					box-shadow: 3px 3px 5px transparentize($dark-blue, 0.5);
+				}
+
+				&.submit {
+					background-color: limegreen;
+					border-color: limegreen;
+					// color: $dark-blue;
+				}
+			}
+		}
+	}
 }

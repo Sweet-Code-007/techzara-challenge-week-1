@@ -1,4 +1,4 @@
-/node_modules
+**/*/node_modules
 /back/static/projects
 /back/static/skills
 /back/static/users

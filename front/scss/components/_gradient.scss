@@ -1,0 +1,13 @@
+@mixin gradient($value) {
+	background-image: linear-gradient(#{$value});
+	background-image: -o-linear-gradient(#{$value});
+	background-image: -moz-linear-gradient(#{$value});
+	background-image: -webkit-linear-gradient(#{$value});
+}
+
+@mixin bg-clip($value) {
+	background-clip: #{$value};
+	-moz-background-clip: #{$value};
+	-webkit-background-clip: #{$value};
+
+}
